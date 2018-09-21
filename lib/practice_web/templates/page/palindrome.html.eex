@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="column">
+    <p><%= link "To main page", to: "/" %></p>
+    <h2>Palindrome Results</h2>
+    <p>Is <%= @str %> a palindrome?</p>
+    <p><%= @y %></p>
+  </div>
+</div>
