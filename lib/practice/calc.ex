@@ -7,11 +7,21 @@ defmodule Practice.Calc do
   def calc(expr) do
     # This should handle +,-,*,/ with order of operations,
     # but doesn't need to handle parens.
-    expr
-    |> String.split(~r/\s+/)
-    |> hd
-    |> parse_float
-    |> :math.sqrt()
+    tagged = []
+    e = String.split(expr, "", trim: true)
+    token = Enum.flat_map(e, fn string ->
+      case Float.parse(string) do
+        {int, _rest} -> [num: int]
+        :error -> [op: string]
+      end
+    end)
+
+    #eval(token, "*")
+
+
+
+    inspect(token)
+
 
     # Hint:
     # expr
